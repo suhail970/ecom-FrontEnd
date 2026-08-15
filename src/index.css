@@ -1,0 +1,32 @@
+.navbar{
+  background-color: rgb(177, 147, 109);
+  margin-bottom: 10px;
+}
+.container-fluid{
+  background-color: rgb(206, 165, 244);
+}
+
+.navigation{
+  border-radius: 15px;
+}
+
+.row{
+    width: 90%;
+    padding: 10px;
+    background-color: rgb(142, 127, 219);
+}
+
+.card{
+  padding: 10px;
+}
+
+.productsbox{
+  display: flex;
+  gap: 20px;
+  height: 100vh;
+}
+
+.cenbox{
+  display: flex;
+  justify-content: center;
+}
