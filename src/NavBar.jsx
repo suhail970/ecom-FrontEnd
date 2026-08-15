@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Navbar = ({setSearchName,setPri}) => {
+const Navbar = ({setSearchName, setRatings, setPri}) => {
     const [val, setVal] = useState("");
 
     const handleInput = (event) =>{
@@ -13,6 +13,10 @@ const Navbar = ({setSearchName,setPri}) => {
 
     const handlePrice = (event) =>{
         setPri(event.target.value);
+    }
+
+    const handleRatings = (event) =>{
+        setRatings(Number(event.target.value));
     }
 
   return (
@@ -64,6 +68,15 @@ const Navbar = ({setSearchName,setPri}) => {
                 <option value="">Normal</option>
                 <option value="asc">Price : Low to High</option>
                 <option value="dec">Price : High to Low</option>
+            </select>
+
+             <select className="ratings" name="" id="" onChange={handleRatings}>
+                <option value="0">Rating NONE</option>
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
             </select>
 
           </ul>

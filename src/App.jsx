@@ -7,47 +7,50 @@ function App() {
   const [products, setProducts] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [pri, setPri] = useState("");
+  const [ratings, setRatings] = useState(0);
 
-  const getProducts = () =>{
-    fetch("http://localhost:8080/api/products")
-    .then(res => {
-      if(!res.ok){
-        throw new Error("Failed to fetch Products!(Gapacho)");
-      }
-      return res.json();
-    })
-    .then(data => setProducts(data.products))
-    .catch(error => console.error(error));
-  }
+  useEffect( () => {
+    const getSearchProducts = async() =>{
+        try{
+        const params = new URLSearchParams();
 
-  const getSearchProducts = () =>{
-    if(searchName !== "" || pri !== ""){
-      fetch(`http://localhost:8080/api/products/search?key=${encodeURIComponent(searchName)}&order=${pri}`)
-      .then(res => {
-        if(!res.ok){
-          throw new Error("Failed to fetch Products!(Gapacho)");
+        if (searchName !== "") params.append("key", searchName);
+        if (pri !== "") params.append("order", pri);
+        if (ratings !== 0) params.append("rating", ratings);
+
+        console.log(params);
+
+        const url =
+        params.toString().length > 0
+          ? `http://localhost:8080/api/products/search?${params.toString()}`
+          : "http://localhost:8080/api/products";
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+        if(params.toString().length > 0){
+          setProducts(data);
         }
-        return res.json();
-      })
-      .then(data => setProducts(data))
-      .catch(error => console.error(error));
-    }
-    else{
-      getProducts();
-    }
-  }
+        else{
+          setProducts(data.products);
+        }
+        }
+        catch (error){
+          console.error(error);
+        }
+      };
+    getSearchProducts();
+  }, [searchName, pri, ratings]);
 
-  useEffect(getProducts,[]);
-  useEffect(getSearchProducts, [searchName, pri]);
 
   return (
     <>
       <div className="box">
         <div className="topbox">
-          <Navbar setSearchName={setSearchName}  setPri={setPri}/>
+          <Navbar setSearchName={setSearchName} setRatings={setRatings} setPri={setPri}/>
         </div>
         <div className="cenbox">
-          {products.length ? searchName === "" && pri === "" ?  <GetProductList products={products} />: <GetProductFilterList products={products} /> : <p>Products Not Found</p>}
+          {products.length ? searchName === "" && pri === "" && ratings === 0 ? <GetProductList products={products} /> : <GetProductFilterList products={products} /> : <p>Products Not Found</p>}
         </div>
       </div>
     </>
