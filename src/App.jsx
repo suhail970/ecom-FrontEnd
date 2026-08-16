@@ -4,6 +4,8 @@ import Navbar from "./NavBar";
 import GetProductFilterList from "./ProductFilterList";
 import GetTrendingProduct from "./Trending";
 import GetFooter from "./Footer";
+import AddProduct from "./AddProduct";
+import { Link, Route, Router, Routes } from "react-router-dom";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -51,21 +53,33 @@ function App() {
         <div className="topbox">
           <Navbar setSearchName={setSearchName} setRatings={setRatings} setPri={setPri}/>
         </div>
-        <div className="trendingg">
-          {searchName === "" && pri === "" && ratings === 0 ? 
-          <>
-          <i><h1>Trending Product</h1></i>
-          <GetTrendingProduct products={products} /> 
+        <Routes>
+          <Route path="/" element={
+            <>
+            <div className="trendingg">
+              {searchName === "" && pri === "" && ratings === 0 ? 
+              <>
+              <i><h1>Trending Product</h1></i>
+              <GetTrendingProduct products={products} /> 
+              </>
+              : null}
+            </div>
+            <hr />
+            <div className="header11">
+              <h3>Products</h3>
+            </div>
+            <div className="cenbox">
+              {products.length ? searchName === "" && pri === "" && ratings === 0 ? <GetProductList products={products} /> : <GetProductFilterList products={products} /> : <p>Products Not Found</p>}
+            </div>
           </>
-          : null}
-        </div>
-        <hr />
-        <div className="header11">
-          <h3>Products</h3>
-        </div>
-        <div className="cenbox">
-          {products.length ? searchName === "" && pri === "" && ratings === 0 ? <GetProductList products={products} /> : <GetProductFilterList products={products} /> : <p>Products Not Found</p>}
-        </div>
+        }/>
+        <Route path="/addProduct" element={
+          <div className="productAdd">
+            <AddProduct/>
+          </div>
+        } />
+        </Routes>
+        
         <div className="footerbox">
           <GetFooter />
         </div>

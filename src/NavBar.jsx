@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({setSearchName, setRatings, setPri}) => {
     const [val, setVal] = useState("");
@@ -41,15 +42,13 @@ const Navbar = ({setSearchName, setRatings, setPri}) => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
 
             <li className="nav-item">
-              <a className="nav-link active" href="#">
+              <a className="nav-link active" href="/">
                 Home
               </a>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Products
-              </a>
+              <a className="nav-link" href="/addProduct">Add Product</a>
             </li>
 
             <li className="nav-item">

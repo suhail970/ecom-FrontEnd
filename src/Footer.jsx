@@ -176,21 +176,21 @@ const GetFooter = () => {
                                 <li>
                                     <p>
                                         <i className="fas fa-map-marker-alt pe-2"></i>
-                                        Warsaw, 57 Street, Poland
+                                        Ukkadam, Coimbatore, Tamil Nadu
                                     </p>
                                 </li>
 
                                 <li>
                                     <p>
                                         <i className="fas fa-phone pe-2"></i>
-                                        + 01 234 567 89
+                                        +91 6380982009
                                     </p>
                                 </li>
 
                                 <li>
                                     <p>
                                         <i className="fas fa-envelope pe-2 mb-0"></i>
-                                        contact@example.com
+                                        720823103003@hit.edu.in
                                     </p>
                                 </li>
 

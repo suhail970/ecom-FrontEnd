@@ -3,10 +3,7 @@
 }
 
 .navbar{
-  background-color:  rgb(196, 157, 233);
   height: 70px;
-}
-.container-fluid{
   background-color: rgb(206, 165, 244);
 }
 .navigation{
@@ -56,6 +53,11 @@
   justify-content: center;
 }
 
+.productAdd{
+  display: flex;
+  justify-content: center;
+}
+
 .foott{
   background-color:  rgb(196, 157, 233);
 }
@@ -65,4 +67,14 @@
 }
 .containerr h5{
   color: black;
+}
+
+.addproStyle{
+  background-color: rgb(196, 157, 233);
+  padding: 10px 0;
+  border-radius: 5px;
+}
+
+.addprobutStyle{
+  background-color: rgb(163, 109, 214) !important;
 }
