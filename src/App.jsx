@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import GetProductList from "./ProductList";
 import Navbar from "./NavBar";
 import GetProductFilterList from "./ProductFilterList";
+import GetTrendingProduct from "./Trending";
+import GetFooter from "./Footer";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -49,8 +51,23 @@ function App() {
         <div className="topbox">
           <Navbar setSearchName={setSearchName} setRatings={setRatings} setPri={setPri}/>
         </div>
+        <div className="trendingg">
+          {searchName === "" && pri === "" && ratings === 0 ? 
+          <>
+          <i><h1>Trending Product</h1></i>
+          <GetTrendingProduct products={products} /> 
+          </>
+          : null}
+        </div>
+        <hr />
+        <div className="header11">
+          <h3>Products</h3>
+        </div>
         <div className="cenbox">
           {products.length ? searchName === "" && pri === "" && ratings === 0 ? <GetProductList products={products} /> : <GetProductFilterList products={products} /> : <p>Products Not Found</p>}
+        </div>
+        <div className="footerbox">
+          <GetFooter />
         </div>
       </div>
     </>

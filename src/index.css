@@ -1,19 +1,43 @@
+.box{
+  background-color: rgb(242, 233, 223);
+}
+
 .navbar{
-  background-color: rgb(177, 147, 109);
-  margin-bottom: 10px;
+  background-color:  rgb(196, 157, 233);
+  height: 70px;
 }
 .container-fluid{
   background-color: rgb(206, 165, 244);
 }
-
 .navigation{
   border-radius: 15px;
+  margin: 0px 5px;
+}
+
+.ratings{
+  margin: 0px 5px;
+  border-radius: 15px;
+}
+
+.trendingg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+.trendingg img{
+  border-radius: 10px;
+}
+
+.header11{
+  display: flex;
+  justify-content: center;
 }
 
 .row{
     width: 90%;
     padding: 10px;
-    background-color: rgb(142, 127, 219);
 }
 
 .card{
@@ -27,6 +51,18 @@
 }
 
 .cenbox{
+  margin-top: 10px;
   display: flex;
   justify-content: center;
+}
+
+.foott{
+  background-color:  rgb(196, 157, 233);
+}
+
+.containerr{
+  margin: 0px;
+}
+.containerr h5{
+  color: black;
 }

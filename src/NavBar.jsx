@@ -20,7 +20,7 @@ const Navbar = ({setSearchName, setRatings, setPri}) => {
     }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg p-0">
       <div className="container-fluid">
 
         <a className="navbar-brand" href="#">
@@ -90,8 +90,8 @@ const Navbar = ({setSearchName, setRatings, setPri}) => {
               onChange={handleInput}
             />
 
-            <button className="btn btn-outline-success" onClick={handleButton}>
-              Search
+            <button className="btn btn-outline-success bg-warning-subtle" onClick={handleButton}>
+              search
             </button>
           </div>
 
